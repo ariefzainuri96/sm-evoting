@@ -1,0 +1,6 @@
+type Vote @entity(immutable: true) {
+    id: ID!
+    voter: Bytes!
+    voteId: BigInt!
+    timestamp: BigInt!
+}
