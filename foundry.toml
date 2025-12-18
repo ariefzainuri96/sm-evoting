@@ -4,3 +4,11 @@ out = "out"
 libs = ["lib"]
 
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
+
+[fmt]
+line_length = 120          # Professional standard (Remix is often 80-100)
+tab_width = 4              # Traditional Solidity indentation
+bracket_spacing = true     # Adds spaces inside { brackets }
+int_types = "long"         # Force 'uint256' instead of 'uint'
+quote_style = "double"     # Use "double quotes" consistently
+number_underscore = "thousands" # Formats 1000000 as 1_000_000

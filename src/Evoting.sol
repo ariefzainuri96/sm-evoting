@@ -9,9 +9,9 @@ contract Evoting {
     }
 
     bool canVote;
-    uint currentVoteId; // help if we have multiple vote, then we can filter data history by the voteId
+    uint256 currentVoteId; // help if we have multiple vote, then we can filter data history by the voteId
     mapping(address => bool) public userHasVoted;
-    uint public totalVote;
+    uint256 public totalVote;
 
     modifier onlyOwner() {
         require(msg.sender == owner, "Not an owner");
@@ -23,11 +23,7 @@ contract Evoting {
         _;
     }
 
-    event VoteCast(
-        address indexed voter,
-        uint indexed voteId,
-        uint256 timestamp
-    );
+    event VoteCast(address indexed voter, uint256 indexed voteId, uint256 timestamp);
 
     function updateVoteStatus(bool value) external onlyOwner {
         if (value) {
