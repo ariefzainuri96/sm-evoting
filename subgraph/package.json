@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare:local": "mustache networks.json -e localhost subgraph.template.yaml > subgraph.yaml",
+    "prepare:sepolia": "mustache networks.json -e sepolia subgraph.template.yaml > subgraph.yaml",
+    "local:graph:create": "graph create --node http://localhost:8020 default/evoting",
+    "local:graph:deploy": "graph deploy --node http://localhost:8020 --ipfs http://localhost:5001 default/evoting",
+    "deploy:local": "npm run local:graph:create && local:graph:deploy",
+    "deploy:sepolia": "npm run prepare:sepolia && graph deploy evoting-sepolia"
   },
   "keywords": [],
   "author": "",

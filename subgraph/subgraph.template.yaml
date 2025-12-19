@@ -5,11 +5,11 @@ schema:
 dataSources:
   - kind: ethereum
     name: Evoting
-    network: sepolia
+    network: {{network}}
     source:
-      address: "0xe127b42DEfb86341B6d6305E21E91568604f0873"   # 👈 deployed address
+      address: "{{address}}"
       abi: Evoting
-      startBlock: 9870093
+      startBlock: {{startBlock}}
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
