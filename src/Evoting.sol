@@ -8,8 +8,8 @@ contract Evoting {
         owner = msg.sender;
     }
 
-    bool canVote;
-    uint256 currentVoteId; // help if we have multiple vote, then we can filter data history by the voteId
+    bool private canVote;
+    uint256 private currentVoteId; // help if we have multiple vote, then we can filter data history by the voteId
     mapping(address => bool) public userHasVoted;
     uint256 public totalVote;
 
@@ -38,7 +38,7 @@ contract Evoting {
         require(!userHasVoted[msg.sender], "You've been voted!!");
         userHasVoted[msg.sender] = true;
         totalVote += 1;
-
+            
         emit VoteCast(msg.sender, currentVoteId, block.timestamp);
     }
 }
